@@ -1,5 +1,8 @@
 package mx.getechnologies.test.repositories;
 
-public interface PlacasRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import mx.getechnologies.test.models.PlacasVehiculosModel;
+
+public interface PlacasRepository extends JpaRepository<PlacasVehiculosModel, Long>{
 
 }

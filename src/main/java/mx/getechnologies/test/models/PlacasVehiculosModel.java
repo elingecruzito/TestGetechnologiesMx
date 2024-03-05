@@ -1,9 +1,29 @@
 package mx.getechnologies.test.models;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "placas")
+@EntityListeners(AuditingEntityListener.class)
 public class PlacasVehiculosModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long idPlaca;
+
+    @Column(name = "placa")
     private String placa;
+
+    @Column(name = "tipo")
     private int idTipo;
 
 

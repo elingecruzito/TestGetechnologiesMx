@@ -18,6 +18,9 @@ public class EntradasController {
 
     @PostMapping("/nueva")
     public EntradasVehiculosModel nuevaEntrada(@RequestBody EntradasVehiculosModel model) {
+
+        
+
         return repository.save(model);
     }
     
