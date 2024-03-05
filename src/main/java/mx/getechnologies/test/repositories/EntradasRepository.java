@@ -10,6 +10,6 @@ import mx.getechnologies.test.models.EntradasVehiculosModel;
 @Repository
 public interface EntradasRepository extends JpaRepository<EntradasVehiculosModel, Long>{
 
-    List<EntradasVehiculosModel> findByPlaca(@Param("placa") String placa);
+    EntradasVehiculosModel findByPlaca(@Param("placa") String placa);
     
 }
