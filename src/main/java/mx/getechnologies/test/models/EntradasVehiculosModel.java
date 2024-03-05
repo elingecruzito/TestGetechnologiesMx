@@ -28,17 +28,18 @@ public class EntradasVehiculosModel {
     @CreatedDate
     private Date entrada;
 
+    @Column(name = "tipo")
+    private int tipo;
 
     public EntradasVehiculosModel() {
     }
 
-
-    public EntradasVehiculosModel(Long idEntrada, String placa, Date entrada) {
+    public EntradasVehiculosModel(Long idEntrada, String placa, Date entrada, int tipo) {
         this.idEntrada = idEntrada;
         this.placa = placa;
         this.entrada = entrada;
+        this.tipo = tipo;
     }
-
 
     public Long getIdEntrada() {
         return this.idEntrada;
@@ -64,5 +65,12 @@ public class EntradasVehiculosModel {
         this.entrada = entrada;
     }
 
+    public int getTipo() {
+        return this.tipo;
+    }
 
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+    
 }
