@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import mx.getechnologies.test.models.EntradasVehiculosModel;
 
+
 @Repository
 public interface EntradasRepository extends JpaRepository<EntradasVehiculosModel, Long>{
 
