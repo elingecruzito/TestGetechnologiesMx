@@ -18,6 +18,7 @@ public class EntradasVehiculosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long idEntrada;
 
     @Column(name = "placa")
