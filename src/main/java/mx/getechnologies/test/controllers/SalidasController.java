@@ -2,6 +2,7 @@ package mx.getechnologies.test.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.annotation.Generated;
 import mx.getechnologies.test.models.EntradasVehiculosModel;
 import mx.getechnologies.test.models.SalidasVehiculosModel;
 import mx.getechnologies.test.models.TiposVehiculo;
@@ -10,6 +11,8 @@ import mx.getechnologies.test.repositories.SalidasRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -29,14 +32,20 @@ public class SalidasController {
 
 
     private EntradasVehiculosModel entrada;
+    private SalidasVehiculosModel model;
     private TiposVehiculo tipoVehiculo;
     private String menssage;
 
-    @PostMapping("/nueva")
-    public String nuevaSalida(@RequestBody SalidasVehiculosModel model) {
-        entrada = entradasRepository.getLastEntrada(model.getPlaca());
+    @GetMapping("/nueva/{placa}")
+    public String nuevaSalida(@PathVariable String placa) {
+        entrada = entradasRepository.getLastEntrada(placa);
         long milisegundos = System.currentTimeMillis() - entrada.getEntrada().getTime();
         int minutos = (int) ((milisegundos / (1000 * 60)) % 60);
+        if(model == null){
+            model = new SalidasVehiculosModel();
+        }
+        model.setEntrada(entrada.getIdEntrada().intValue());
+        model.setTiempo(minutos);
         model.setImporteTotal((getImporet(entrada.getTipo()) * minutos));
         model = repository.save(model);
         switch (tipoVehiculo) {

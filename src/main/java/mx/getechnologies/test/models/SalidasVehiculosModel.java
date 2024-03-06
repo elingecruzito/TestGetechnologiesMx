@@ -22,25 +22,27 @@ public class SalidasVehiculosModel {
     @Column(name = "id")
     private Long idSalidas;
 
-    @Column(name = "placa")
-    private String placa;
+    @Column(name = "entrada")
+    private int entrada;
 
     @Column(name = "salida")
     private Date salida;
+
+    @Column(name = "minutos")
+    private int tiempo;
 
     @Column(name = "importe_total")
     private double importeTotal;
 
 
-
     public SalidasVehiculosModel() {
     }
-    
 
-    public SalidasVehiculosModel(Long idSalidas, String placa, Date salida, double importeTotal) {
+    public SalidasVehiculosModel(Long idSalidas, int entrada, Date salida, int tiempo, double importeTotal) {
         this.idSalidas = idSalidas;
-        this.placa = placa;
+        this.entrada = entrada;
         this.salida = salida;
+        this.tiempo = tiempo;
         this.importeTotal = importeTotal;
     }
 
@@ -52,12 +54,12 @@ public class SalidasVehiculosModel {
         this.idSalidas = idSalidas;
     }
 
-    public String getPlaca() {
-        return this.placa;
+    public int getEntrada() {
+        return this.entrada;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setEntrada(int entrada) {
+        this.entrada = entrada;
     }
 
     public Date getSalida() {
@@ -68,6 +70,14 @@ public class SalidasVehiculosModel {
         this.salida = salida;
     }
 
+    public int getTiempo() {
+        return this.tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
     public double getImporteTotal() {
         return this.importeTotal;
     }
@@ -75,5 +85,6 @@ public class SalidasVehiculosModel {
     public void setImporteTotal(double importeTotal) {
         this.importeTotal = importeTotal;
     }
+
 
 }
